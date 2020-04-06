@@ -1,0 +1,23 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "description": "Week 1 Assignment",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./src",
+    "test:watch": "jest --watch",
+    "test": "npm run lint && jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.2.7"
+  }
+}
