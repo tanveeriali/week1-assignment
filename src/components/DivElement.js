@@ -1,6 +1,5 @@
-import HTMLElement from './HTMLElement';
+// Import HTMLElement here
 
 // Define class here
 
 // Export class here
-export default {};

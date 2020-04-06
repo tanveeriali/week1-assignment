@@ -1,22 +1,17 @@
 import Timer from '../src/timer/Timer';
 
 describe('Timer class', () => {
-  let classDefintion;
+  let instance;
 
   beforeEach(() => {
-    classDefintion = Timer.toString();
+    instance = new Timer(10);
   });
 
-  it('should be defined with the keyword "class"', () => {
-    expect(classDefintion).toContain('class Timer');
+  it('should be a class with the name Timer', () => {
+    expect(instance.constructor.name).toEqual('Timer');
   });
 
   it('should have a function called "start()"', () => {
-    expect(classDefintion).toContain('start()');
-  });
-
-  it('should use an arrow function instead of assigning this to a variable', () => {
-    const startFunction = Timer.prototype.start.toString();
-    expect(startFunction).not.toContain('= this;');
+    expect(typeof instance.start).toEqual('function');
   });
 });

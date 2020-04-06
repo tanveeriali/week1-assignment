@@ -1,26 +1,30 @@
+import HTMLElement from '../src/components/HTMLElement';
 import DivElement from '../src/components/DivElement';
 
 describe('DivElement class', () => {
-  let classDefintion;
+  let instance;
 
   beforeEach(() => {
-    classDefintion = DivElement.toString();
+    instance = new DivElement('content');
   });
 
-  it('should be defined with the keyword "class"', () => {
-    expect(classDefintion).toContain('class DivElement');
+  it('should be a class with the name DivElement', () => {
+    expect(instance.constructor.name).toContain('DivElement');
   });
 
-  it('should inherit properties from the HTMLElement class', () => {
-    expect(classDefintion).toContain('extends HTMLElement');
+  it('should be an instance of HTMLElement', () => {
+    expect(instance).toBeInstanceOf(HTMLElement);
   });
 
-  it('should use the "super" keyword to call the parent class constructor', () => {
-    expect(classDefintion).toContain('super(');
+  it('should set "tag" and "content" as instance variables', () => {
+    expect(instance.tag).toEqual('div');
+    expect(instance.content).toEqual('content');
   });
 
   it('should render valid div elements', () => {
+    expect(instance.render()).toEqual('<div>content</div>')
+
     const div = new DivElement('University of Washington');
-    expect(div.render()).toBe('<div>University of Washington</div>');
+    expect(div.render()).toEqual('<div>University of Washington</div>');
   });
 });

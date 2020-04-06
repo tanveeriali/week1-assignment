@@ -1,25 +1,29 @@
 import HTMLElement from '../src/components/HTMLElement';
 
 describe('HTMLElement class', () => {
-  let classDefintion;
+  let instance;
 
   beforeEach(() => {
-    classDefintion = HTMLElement.toString();
+    instance = new HTMLElement('p', 'content');
   });
 
-  it('should be defined with the keyword "class"', () => {
-    expect(classDefintion).toContain('class HTMLElement');
+  it('should be a class with the name HTMLElement', () => {
+    expect(instance.constructor.name).toEqual('HTMLElement');
   });
 
   it('should have a function called "render()"', () => {
-    expect(classDefintion).toContain('render()');
+    expect(typeof instance.render).toEqual('function');
+  });
+
+  it('should set "tag" and "content" as instance variables', () => {
+    expect(instance.tag).toEqual('p');
+    expect(instance.content).toEqual('content');
   });
 
   it('should render valid HTML elements', () => {
-    const div = new HTMLElement('div', 'University of Washington');
-    expect(div.render()).toBe('<div>University of Washington</div>');
+    expect(instance.render()).toEqual('<p>content</p>');
 
     const paragraph = new HTMLElement('p', 'Hello');
-    expect(paragraph.render()).toBe('<p>Hello</p>');
+    expect(paragraph.render()).toEqual('<p>Hello</p>');
   });
 });
